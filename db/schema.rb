@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_104341) do
+ActiveRecord::Schema.define(version: 2021_02_17_175512) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,4 +18,17 @@ ActiveRecord::Schema.define(version: 2021_02_17_104341) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "year"
+    t.integer "number"
+    t.string "sentence"
+    t.integer "answer"
+    t.text "text"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_questions_on_category_id"
+  end
+
+  add_foreign_key "questions", "categories"
 end

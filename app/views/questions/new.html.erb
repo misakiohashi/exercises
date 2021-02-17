@@ -1,0 +1,40 @@
+
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        <%= form_with(model: @question,local:true) do |f| %>
+         <%= render 'layouts/error_messages', model: f.object %>
+        
+        <div class="form-group">
+            <%= f.label :name, '分野' %>
+            <%= f.collection_select :category_id, Category.all, :id, :name,{ prompt: "選択してください" } %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :year, '回' %>
+            <%= f.select :year, [["35","35"],["34", "34"], ["33", "33"], ["32", "32"], ["31", "31"]], include_blank: "選択する" %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :number, '番号' %>
+            <%= f.number_field :number, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :sentence, '問題文' %>
+            <%= f.text_area :sentence, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :answer, '答え' %>
+            <%= f.select :answer, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"],["5","5"]], include_blank: "選択する" %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :text, '解説' %>
+            <%= f.text_area :text, class: 'form-control' %>
+        </div>
+        
+        <%= f.submit'登録する',class: 'btn btn-primary btn-block' %>
+        <% end %>
+    </div>
+</div>
