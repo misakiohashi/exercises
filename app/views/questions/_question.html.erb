@@ -1,0 +1,10 @@
+<div class="question-list">
+    <% questions.each do |question| %>
+      <div class="question-item">
+        <p><%= question.year %>-<%= question.number %></p>
+        <p><%= simple_format(question.sentence) %></p>
+        <p class="answer-number">(<%= question.answer %>)</p>
+        <p><%= simple_format question.text %></p>
+      </div>
+    <% end %>
+</div>
