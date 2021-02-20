@@ -4,7 +4,29 @@
         <p><%= question.year %>-<%= question.number %></p>
         <p><%= simple_format(question.sentence) %></p>
         <p class="answer-number">(<%= question.answer %>)</p>
-        <p><%= simple_format question.text %></p>
+        <button type="button" class="btn btn-light answer-show">答え</button>
+        <button type="button" class="btn btn-light answer-close">閉じる</button>
+        
+        
+        <script type="text/javascript">
+            $(function () {
+              $('.answer-show').on('click', () => {
+                $(".answer-number").show();
+                $('.answer-close').show();
+                $('.answer-show').hide();
+              });
+            });
+            
+            $(function(){
+              $('.answer-close').on('click',()=>{
+                $('.answer-show').show();
+                $('.answer-number').hide();
+                $('.answer-close').hide();
+              })
+            })
+        </script>
+
+        <p><%= simple_format(question.text) %></p>
       </div>
     <% end %>
 </div>

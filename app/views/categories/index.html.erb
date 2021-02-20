@@ -1,17 +1,17 @@
 <div class="center jumbotron">
   <div class="text-center">
     <h1>Welcome to the Exercises</h1>
+    
   </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-6">
+
+    <div style="text-align:center;">
         
         <% @categories.each do |category| %>
-          <ul>
+          <ul style="list-style: none;">
           <li><%=link_to category.name,category_path(category) %></li>
           </ul>
         <% end %>
         
     </div>
-</div>

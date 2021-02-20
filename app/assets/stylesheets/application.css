@@ -5,5 +5,10 @@
 }
 
 .answer-number{
-    text-align: right
+    display:none;
+    margin-left:20px;
+}
+
+.answer-close{
+    display:none;
 }
