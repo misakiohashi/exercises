@@ -3,17 +3,20 @@
       <div class="question-item">
         <p><%= question.year %>-<%= question.number %></p>
         <p><%= simple_format(question.sentence) %></p>
-        <p class="answer-number">(<%= question.answer %>)</p>
-        <button type="button" class="btn btn-light answer-show">答え</button>
-        <button type="button" class="btn btn-light answer-close">閉じる</button>
+        
+          <p class="btn btn-light btn-block answer-show">答え<p class="answer-number">(<%= question.answer %>)</p></p>
+         
+        
+        
+        
         
         
         <script type="text/javascript">
             $(function () {
               $('.answer-show').on('click', () => {
                 $(".answer-number").show();
-                $('.answer-close').show();
-                $('.answer-show').hide();
+                
+               
               });
             });
             
