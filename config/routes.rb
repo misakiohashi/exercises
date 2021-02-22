@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: "categories#index"
   
   resources :categories,only: [:index,:show]
-  resources :questions,only: [:new,:create]
+  resources :questions,only: [:new,:create,:edit,:update]
 end

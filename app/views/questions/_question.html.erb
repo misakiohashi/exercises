@@ -4,32 +4,32 @@
         <p><%= question.year %>-<%= question.number %></p>
         <p><%= simple_format(question.sentence) %></p>
         
-          <p class="btn btn-light btn-block answer-show">答え<p class="answer-number">(<%= question.answer %>)</p></p>
-         
-        
-        
-        
-        
+       
+          <p class="btn btn-light btn-block answer-show">答えを見る</p>
+          
+            <div class="answer">
+              <p class="answer-number">(<%= question.answer %>)</p>
+              <p class="answer-text"><%= simple_format(question.text) %></p>
+            </div>
+            
+          <%=link_to "編集",edit_question_path(question),class: 'btn btn-light btn-block'%>
         
         <script type="text/javascript">
             $(function () {
+              $('.answer').hide();
+              
               $('.answer-show').on('click', () => {
-                $(".answer-number").show();
                 
+                $('.answer').show();
+               });
                
-              });
+               
             });
             
-            $(function(){
-              $('.answer-close').on('click',()=>{
-                $('.answer-show').show();
-                $('.answer-number').hide();
-                $('.answer-close').hide();
-              })
-            })
+            
         </script>
 
-        <p><%= simple_format(question.text) %></p>
+        
       </div>
     <% end %>
 </div>
